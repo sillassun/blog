@@ -11,7 +11,7 @@
                             <small class="text-danger"  v-if="form.errors.has('title')" v-text="form.errors.get('title')">djfljdfj</small>
                         </div>
                         <div class="form-group">
-                            <textarea name="body" class="form-control" placeholder="body" rows="3" v-model="form.body"></textarea>
+                            <editor api-key="API_KEY" :init="{plugins: 'wordcount'}" v-model="form.body"></editor>
                             <small class="text-danger" v-if="form.errors.has('body')" v-text="form.errors.get('body')">djfljdfj</small>
                         </div>
                         <button type="submit" class="btn btn-primary" >Submit</button>
@@ -34,7 +34,10 @@
             }
             
         },
-        methods: {
+        components: {
+            Editor
+        },
+            methods: {
             addArticle() {
                 this.form.post('/article')
                 .then(r => this.$emit('completed', r));

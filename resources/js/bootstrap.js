@@ -2,12 +2,14 @@ import Vue from 'vue';
 import axios from 'axios';
 import moment from 'moment';
 import Form from './utilities/form';
+import Editor from '@tinymce/tinymce-vue';
 
 window.Vue = Vue;
 
 window.moment = moment;
 window.Form = Form;
 window.axios = axios;
+window.Editor = Editor;
 
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
